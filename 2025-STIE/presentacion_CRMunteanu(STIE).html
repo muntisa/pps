@@ -1,0 +1,843 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IA en educación y ciencia</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        /* Establecer la fuente Inter como predeterminada */
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        /* Ocultar las secciones de diapositivas (páginas) por defecto */
+        .slide-content {
+            display: none;
+            /* Agregar posicionamiento relativo para que funcione el número de la diapositiva */
+            position: relative; 
+        }
+        /* La primera página (slide-1) es visible al cargar */
+        #slide-1 {
+            display: block;
+        }
+        /* Estilo para el enlace de navegación activo */
+        .nav-link.active {
+            color: #4f46e5; /* indigo-600 */
+            font-weight: 700; /* bold */
+            background-color: #f3f4f6; /* gray-100 */
+            border-radius: 0.375rem; /* rounded-md */
+        }
+    </style>
+</head>
+<body class="bg-gray-100 text-gray-900">
+
+    
+
+<header class="bg-white/95 backdrop-blur-sm shadow-md fixed top-0 left-0 right-0 z-50">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+
+<div class="flex justify-between items-center h-12">
+                
+                <div class="flex-shrink-0">
+                    <a href="#slide-1" class="text-xl font-bold text-indigo-600 nav-link" data-slide="slide-1">IA en educación y ciencia</a>
+                </div>
+
+                
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-4">
+                        <a href="#slide-1" class="nav-link px-3 py-1 rounded-md text-sm font-medium text-gray-700 hover:text-indigo-600 hover:bg-gray-100" data-slide="slide-1">Inicio</a>
+                        <a href="#slide-3" class="nav-link px-3 py-1 rounded-md text-sm font-medium text-gray-700 hover:text-indigo-600 hover:bg-gray-100" data-slide="slide-3">Rendimiento de la IA</a>
+                        <a href="#slide-4" class="nav-link px-3 py-1 rounded-md text-sm font-medium text-gray-700 hover:text-indigo-600 hover:bg-gray-100" data-slide="slide-4">Educación</a>
+                        <a href="#slide-8" class="nav-link px-3 py-1 rounded-md text-sm font-medium text-gray-700 hover:text-indigo-600 hover:bg-gray-100" data-slide="slide-8">Ciencia</a>
+                        <a href="#slide-13" class="nav-link px-3 py-1 rounded-md text-sm font-medium text-gray-700 hover:text-indigo-600 hover:bg-gray-100" data-slide="slide-13">Futuro</a>
+                        <a href="#slide-15" class="nav-link px-3 py-1 rounded-md text-sm font-medium text-gray-700 hover:text-indigo-600 hover:bg-gray-100" data-slide="slide-15">Conclusiones</a>
+                        <a href="#slide-16" class="nav-link px-3 py-1 rounded-md text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700" data-slide="slide-16">Contacto</a>
+                    </div>
+                </div>
+
+                
+                <div class="-mr-2 flex md:hidden">
+                    <button id="menu-btn" type="button" class="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500" aria-controls="mobile-menu" aria-expanded="false">
+                        <span class="sr-only">Abrir menú</span>
+                        
+                        <svg class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                        
+                        <svg class="hidden h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </nav>
+
+        
+        <div class="md:hidden hidden" id="mobile-menu">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#slide-1" class="nav-link block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-indigo-600 hover:bg-gray-100" data-slide="slide-1">Inicio</a>
+                <a href="#slide-3" class="nav-link block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-indigo-600 hover:bg-gray-100" data-slide="slide-3">Rendimiento de la IA</a>
+                <a href="#slide-4" class="nav-link block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-indigo-600 hover:bg-gray-100" data-slide="slide-4">Educación</a>
+                <a href="#slide-8" class="nav-link block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-indigo-600 hover:bg-gray-100" data-slide="slide-8">Ciencia</a>
+                <a href="#slide-13" class="nav-link block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-indigo-600 hover:bg-gray-100" data-slide="slide-13">Futuro</a>
+                <a href="#slide-15" class="nav-link block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-indigo-600 hover:bg-gray-100" data-slide="slide-15">Conclusiones</a>
+                <a href="#slide-16" class="nav-link block px-3 py-2 rounded-md text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700" data-slide="slide-16">Contacto</a>
+            </div>
+        </div>
+    </header>
+
+    
+
+<main class="pt-12">
+
+        
+
+<section id="slide-1" class="slide-content">
+            <div class="relative bg-gray-900 h-[calc(100vh-3rem)] flex flex-col items-center justify-center text-center text-white overflow-hidden">
+                <img src="img/slide1.png"
+				alt="[Imagen de fondo abstracta relacionada con la IA]"
+				class="absolute inset-0 w-full h-full object-cover opacity-30"
+                onerror="this.onerror=null;this.src='https://placehold.co/1920x1080/000033/FFFFFF?text=Imagen+No+Disponible';">
+                <div class="relative z-10 p-4 w-full px-8">
+					<h1 class="text-4xl md:text-6xl font-extrabold tracking-tight mb-4">IA en educación y ciencia:</h1>
+                    <h2 class="text-2xl md:text-4xl lg:text-5xl font-light mb-6 whitespace-nowrap overflow-hidden text-ellipsis"> 
+					Cómo nos ayuda ChatGPT a aprender y descubrir</h2>
+                    <a href="#slide-2" class="nav-link inline-block bg-indigo-600 text-white font-bold py-3 px-8 rounded-lg text-lg hover:bg-indigo-700 transition duration-300 mb-6" data-slide="slide-2">Comenzar la exploración</a>
+                    
+                    <div class="mt-16 space-y-1 mb-6 text-gray-300">
+                        <p class="text-xl md:text-2xl font-semibold text-indigo-300">Prof. Dr. Cristian R. Munteanu</p>
+						<div class="flex justify-center space-x-6 mt-8 mb-8">
+		
+							<img class="w-8 h-8 object-contain" 
+								 src="img/logo_udc.png" 
+								 alt="Logo UDC">
+							
+							<img class="w-8 h-8 object-contain" 
+								 src="img/logo_citic.png" 
+								 alt="Logo CITIC">
+
+						</div>
+                        <p class="text-sm">Facultad de Informática</p>
+						<p class="text-sm">Universidad de A Coruña, CITIC</p>
+						<p class="text-sm">España</p>
+                        <p class="text-sm text-indigo-300">c.munteanu@udc.es</p>
+                        <p class="text-sm text-indigo-300">linkedin.com/in/muntisa</p>
+                        <p class="text-xs pt-1 font-light">31 de Octubre de 2025</p>
+                    </div>
+
+
+                </div>
+                <div class="absolute bottom-0 left-0 right-0 p-3 bg-gray-800/70 text-gray-300 text-xs md:text-sm">
+                    <p>Ciencia para futuros investigadores: experimentos y conocimiento (ŞTIE) - PN-IV-P10-SS-SC-2024-0045, Programa 5.10 - Ciencia y sociedad, Instituto de Química Física - Ilie Murgulescu</p>
+                </div>
+                <div class="absolute bottom-3 right-5 z-20 text-sm font-semibold text-indigo-300">1/16</div>
+            </div>
+</section>
+
+        
+
+<section id="slide-2" class="slide-content">
+            <div class="max-w-7xl mx-auto py-10 px-4 sm:py-16 sm:px-6 lg:px-8">
+                <div class="text-center">
+                    <h2 class="text-base font-semibold text-indigo-600 tracking-wide uppercase">Introducción</h2>
+                    <p class="mt-1 text-4xl font-extrabold text-gray-900 sm:text-5xl sm:tracking-tight lg:text-6xl">Presentación general</p>
+                </div>
+                <div class="mt-16 grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+				
+                    <div class="bg-gray-50 p-5 rounded-lg shadow lg:col-span-1">
+                        <h3 class="text-2xl font-bold mb-3 text-indigo-700">¿Qué es la Inteligencia Artificial (IA)?</h3>
+                        <p class="text-lg text-gray-600 mb-4">En resumen, la inteligencia artificial representa sistemas informáticos que pueden realizar tareas que normalmente requieren inteligencia humana. Esto incluye actividades como aprender de la experiencia, reconocer patrones, resolver problemas complejos y comprender el lenguaje natural.</p>
+                        
+                        
+                        <h3 class="text-2xl font-bold mb-3 text-indigo-700">¿Qué es ChatGPT?</h3>
+                        <p class="text-lg text-gray-600 mb-4">ChatGPT es un tipo específico y avanzado de IA, conocido como un Modelo de Lenguaje Grande (Large Language Model - LLM). Fue entrenado con enormes cantidades de texto de internet y está especializado en comprender el contexto, generar texto coherente y mantener conversaciones de una manera sorprendentemente natural <span class="font-semibold">(no memoriza frases)</span>. Piense en él como un asistente de lenguaje universal, listo para explicar, escribir y crear.</p>
+
+                        <h3 class="text-2xl font-bold mb-3 text-indigo-700">Próximas secciones</h3>
+                        <ul class="list-disc list-inside text-lg text-gray-600 space-y-1">
+                            <li>El impacto de la IA en la educación</li>
+                            <li>El papel de la IA en la ciencia</li>
+                            <li>El futuro y los desafíos éticos de esta tecnología</li>
+                        </ul>
+                    </div>
+                    <div class="flex flex-col justify-center items-center">
+                     
+                        <img class="rounded-lg shadow w-full max-w-lg" src="img/slide2.png">
+                        <div class="bg-gray-700/80 p-3 rounded-lg shadow border-l-4 border-indigo-400 max-w-lg mx-auto mt-8">
+                            <p class="text-md text-white font-medium">
+                                <span class="font-bold">ChatGPT-5</span> tiene una arquitectura Transformer y fue entrenado con una cantidad de datos aproximadamente 1.000 veces mayor que la que lee un ser humano en toda su vida. El modelo tiene más de 1-2 trillones de parámetros.
+                            </p>
+                        </div>
+                    </div>
+                
+				</div>
+            </div>
+            <div class="absolute bottom-3 right-5 text-sm font-semibold text-gray-500">2/16</div>
+        </section>
+
+       
+<section id="slide-3" class="slide-content min-h-[calc(100vh-3rem)] flex items-center">
+    <div class="max-w-7xl mx-auto py-10 px-4 sm:py-16 sm:px-6 lg:px-8">
+        <div class="text-center mb-14">
+            <h2 class="text-base font-semibold text-indigo-600 tracking-wide uppercase">Rendimiento de la IA</h2>
+            
+            <p class="mt-1 text-4xl font-extrabold text-gray-900 sm:text-5xl sm:tracking-tight lg:text-6xl">Superando el límite humano</p>
+            <p class="mt-2 text-2xl font-semibold text-gray-700 sm:text-3xl sm:tracking-tight">La evolución del rendimiento de la IA en preguntas científicas de nivel PhD (GPQA Diamond)
+        </div>
+		<div class="mt-8 flex justify-center w-full">
+			<img class="rounded-lg shadow mx-auto w-full max-w-7xl max-h-[70vh] h-auto object-contain" 
+				 src="img/slide3.png"
+				 style="width: 85%; height: 85%;">
+		</div>
+
+
+    </div>
+    <div class="absolute bottom-3 right-5 text-sm font-semibold text-gray-500">3/16</div>
+</section>
+        
+
+<section id="slide-4" class="slide-content bg-gray-100">
+            <div class="max-w-7xl mx-auto py-6 px-4 sm:py-10 sm:px-6 lg:px-8"> 
+                <div class="text-center">
+                    <h2 class="text-base font-semibold text-indigo-600 tracking-wide uppercase">Parte 1: Educación</h2>
+                    <p class="mt-1 text-4xl font-extrabold text-gray-900 sm:text-5xl sm:tracking-tight lg:text-6xl">Un compañero de estudio personalizado</p>
+                    <p class="max-w-4xl mt-3 mx-auto text-xl text-gray-600">La Inteligencia Artificial no reemplaza al profesor, sino que ofrece herramientas revolucionarias tanto para estudiantes como para profesores, personalizando la experiencia de aprendizaje.</p>
+                    
+                    <div class="mt-8 flex justify-center w-full">
+    <img class="rounded-lg shadow mx-auto w-full max-w-7xl max-h-[70vh] h-auto object-contain" 
+         src="img/slide4.png" 
+         alt="[Un aula moderna, con estudiantes usando tabletas]"
+         onerror="this.onerror=null;this.src='https://placehold.co/1000x500/FFFFFF/333333?text=Imagen+No+Disponible';">
+</div>
+                </div>
+            </div>
+            <div class="absolute bottom-3 right-5 text-sm font-semibold text-gray-500">4/16</div>
+        </section>
+
+        
+
+<section id="slide-5" class="slide-content bg-white min-h-[calc(100vh-3rem)] flex items-center">
+            <div class="max-w-7xl mx-auto py-10 px-4 sm:py-6 sm:px-6 lg:px-8">
+                <div class="text-center mb-8">
+                    <h2 class="text-base font-semibold text-indigo-600 tracking-wide uppercase">Para alumnos y estudiantes</h2>
+                    <p class="mt-1 text-4xl font-extrabold text-gray-900 sm:text-5xl sm:tracking-tight">El tutor virtual ininterrumpido</p>
+                    <p class="max-w-3xl mt-3 mx-auto text-xl text-gray-600">Cómo ChatGPT y otros modelos de IA transforman el proceso de aprendizaje individual</p>
+                </div>
+				
+				<div class="flex justify-center items-center mb-6">
+						<img class="rounded-lg shadow w-full  max-h-72 object-cover" src="img/slide5.png">
+				</div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 ">
+                    
+                    <div class="bg-gray-50 p-5 rounded-lg shadow lg:col-span-2">
+                        <h3 class="text-xl font-bold mb-2 text-indigo-700">Explicación de conceptos complejos</h3>
+                        <p class="text-md text-gray-600 mb-3">La IA puede desglosar ideas complejas en partes fáciles de entender, adaptadas al nivel de cada uno, desde un niño de 10 años hasta nivel universitario.</p>
+                        <p class="text-sm font-bold">Prompt: "¿Cuál es la diferencia fundamental entre la mecánica cuántica y la relatividad general? Explícamelo como a un niño de 10 años."</p>
+                    </div>
+                    
+                    <div class="bg-gray-50 p-5 rounded-lg shadow lg:col-span-2">
+                        <h3 class="text-xl font-bold mb-2 text-indigo-700">Resúmenes claros</h3>
+                        <p class="text-md text-gray-600 mb-3">Obtén resúmenes claros de textos largos, libros, videoclips, audio o imágenes. La IA extrae los puntos esenciales para que comprendas las ideas principales.</p>
+                        <p class="text-sm font-bold">Prompt: "Resume las ideas principales de estas fuentes sobre reacciones químicas, explicando brevemente cómo se forman y descomponen las sustancias."</p>
+                    </div>
+                    
+                    
+
+                    <div class="bg-gray-50 p-5 rounded-lg shadow lg:col-span-2">
+                        <h3 class="text-xl font-bold mb-2 text-indigo-700">Compañero de lluvia de ideas y redacción</h3>
+                        <p class="text-md text-gray-600 mb-3">Si quieres estructurar tus argumentos, la IA puede actuar como un compañero de discusión. Puede ofrecerte ideas, ayudarte a crear un esquema o refinar tu estilo y gramática, actuando como un editor personal.</p>
+                        <p class="text-sm font-bold">Prompt: "Escribe una introducción cautivadora para un ensayo sobre el impacto de la inteligencia artificial en la educación. Utiliza un tono académico, pero amigable."</p>
+                    </div>
+					
+					<div class="bg-gray-50 p-5 rounded-lg shadow lg:col-span-2">
+                        <h3 class="text-xl font-bold mb-2 text-indigo-700">Generación de ejercicios de autoevaluación</h3>
+                        <p class="text-md text-gray-600 mb-3">Crea ejercicios, preguntas o simulaciones de examen basados en cualquier material de estudio. Es la manera perfecta de verificar si realmente has entendido la materia antes de los exámenes.</p>
+                        <p class="text-sm font-bold">Prompt:"Crea 5 preguntas de opción múltiple y 5 fichas para repasar las reacciones de oxidación-reducción, adecuadas para un estudiante de secundaria."</p>
+                    </div>
+                    
+                    </div>
+            </div>
+            <div class="absolute bottom-3 right-5 text-sm font-semibold text-gray-500">5/16</div>
+        </section>
+
+        
+
+<section id="slide-6" class="slide-content bg-gray-100">
+            <div class="max-w-7xl mx-auto py-6 px-4 sm:py-8 sm:px-6 lg:px-8">
+                <div class="text-center mb-8">
+                    <h2 class="text-base font-semibold text-indigo-600 tracking-wide uppercase">Para profesores</h2>
+                    <p class="mt-1 text-4xl font-extrabold text-gray-900 sm:text-5xl sm:tracking-tight">El asistente incansable</p>
+                    <p class="max-w-2xl mt-3 mx-auto text-xl text-gray-600">La IA ahorra tiempo valioso a los profesores, permitiéndoles concentrarse en lo que realmente importa: la interacción humana y la enseñanza.</p>
+                </div>
+			
+				<div class="flex justify-center items-center mb-6">
+						<img class="rounded-lg shadow w-full  max-h-72 object-cover" src="img/slide6.png" alt="[Un profesor en su escritorio, con aspecto satisfecho]"
+						onerror="this.onerror=null;this.src='https://placehold.co/700x400/FFFFFF/333333?text=Imagen+No+Disponible';">
+				</div>
+	
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    
+                    <div class="bg-white p-5 rounded-lg shadow">
+                        <h3 class="text-xl font-bold mb-2 text-indigo-700">Creación de materiales didácticos</h3>
+                        <p class="text-md text-gray-600 mb-3">Generación de planes de lecciones adaptados, creación de ejemplos relevantes, problemas de matemáticas con niveles de dificultad variados o estudios de caso para las clases de ciencias sociales. La IA puede producir contenido personalizado en segundos.</p>
+                        <p class="text-sm font-bold">Prompt: "Genera un plan de lección para el décimo grado, en matemáticas, sobre el tema de las funciones, que incluya ejemplos de la vida real y ejercicios de dificultad variada."</p>
+                    </div>
+                    
+                    <div class="bg-white p-5 rounded-lg shadow">
+                        <h3 class="text-xl font-bold mb-2 text-indigo-700">Instrumentos de evaluación</h3>
+                        <p class="text-md text-gray-600 mb-3">Creación de preguntas para pruebas (de opción múltiple, abiertas, verdadero/falso) basadas en un texto dado. También puede generar rúbricas de evaluación detalladas para ensayos o proyectos, asegurando una calificación objetiva y transparente.</p>
+                        <p class="text-sm font-bold">Prompt: "Crea 10 preguntas de opción múltiple y 5 preguntas abiertas sobre las reacciones de oxidación-reducción, además de una rúbrica de evaluación para un ensayo sobre la importancia de las reacciones redox en la industria."</p>
+                    </div>
+                    
+                    <div class="bg-white p-5 rounded-lg shadow md:col-span-2 lg:col-span-1">
+                        <h3 class="text-xl font-bold mb-2 text-indigo-700">Automatización de tareas administrativas</h3>
+                        <p class="text-md text-gray-600 mb-3">Las tareas que consumen tiempo, como la redacción de correos electrónicos a los padres, la escritura de recomendaciones o el resumen de documentos educativos largos, pueden delegarse ahora a la IA, ahorrando tiempo importante en la agenda de un profesor.</p>
+                        <p class="text-sm font-bold">Ejemplo de prompt: "Redacta un correo electrónico a los padres para anunciar la reunión del semestre y resume este documento de 10 páginas sobre estrategias educativas."</p>
+                    </div>
+                </div>
+                
+            </div>
+            <div class="absolute bottom-3 right-5 text-sm font-semibold text-gray-500">6/16</div>
+        </section>
+
+        
+
+<section id="slide-7" class="slide-content bg-white min-h-[calc(100vh-3rem)]">
+            <div class="max-w-7xl mx-auto py-6 px-4 sm:py-6 sm:px-6 lg:px-8">
+                <div class="text-center mb-8">
+                    <h2 class="text-base font-semibold text-indigo-600 tracking-wide uppercase">Equilibrio inteligente</h2>
+                    <p class="mt-1 text-4xl font-extrabold text-gray-900 sm:text-5xl sm:tracking-tight">Oportunidades vs. desafíos</p>
+                </div>
+
+				<div class="flex justify-center items-center mb-6">
+						<img class="rounded-lg shadow w-full  max-h-72 object-cover" src="img/slide7.png">
+				</div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-start">
+                    
+                    <div class="bg-emerald-50 p-5 rounded-lg border border-emerald-200">
+                        <h3 class="text-2xl font-bold mb-3 text-emerald-700">Grandes beneficios</h3>
+                        <ul class="space-y-9">
+                            <li class="flex items-start">
+                                <svg class="flex-shrink-0 h-6 w-6 text-emerald-500 mr-3 mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                <div>
+                                    <h4 class="text-lg font-semibold">Aprendizaje personalizado</h4>
+                                    <p class="text-md text-gray-600">Cada alumno puede aprender a su propio ritmo, recibiendo explicaciones adaptadas a sus necesidades específicas, un lujo imposible en una clase de 30 alumnos.</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="flex-shrink-0 h-6 w-6 text-emerald-500 mr-3 mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                <div>
+                                    <h4 class="text-lg font-semibold">Accesibilidad ininterrumpida</h4>
+                                    <p class="text-md text-gray-600">Los recursos de aprendizaje y el <span class="font-bold text-emerald-800">asistente</span> de IA están disponibles en cualquier momento, eliminando las barreras de tiempo y ubicación.</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    
+                    <div class="bg-rose-50 p-5 rounded-lg border border-rose-200">
+                        <h3 class="text-2xl font-bold mb-3 text-rose-700">Desafíos a gestionar</h3>
+                        <ul class="space-y-3">
+                            <li class="flex items-start">
+                                <svg class="flex-shrink-0 h-6 w-6 text-rose-500 mr-3 mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
+                                <div>
+                                    <h4 class="text-lg font-semibold">Plagio y pensamiento crítico</h4>
+                                    <p class="text-md text-gray-600">El desafío es asegurarnos de que los alumnos utilicen la IA para <span class="font-bold text-rose-800">mejorar</span> su pensamiento, no para <span class="font-bold text-rose-800">reemplazarlo</span>. ¿Cómo evaluamos la originalidad?</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="flex-shrink-0 h-6 w-6 text-rose-500 mr-3 mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
+                                <div>
+                                    <h4 class="text-lg font-semibold">Precisión de la información</h4>
+                                    <p class="text-md text-gray-600">Los modelos de IA pueden <span class="font-bold text-rose-800">alucinar</span> – pueden inventar hechos y fuentes con total confianza. La verificación de la información se convierte en una habilidad crucial.</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="mt-8 text-center p-5 bg-indigo-50 rounded-lg">
+                    <h3 class="text-2xl font-bold text-indigo-800">La solución</h3>
+                    <p class="mt-2 text-xl text-indigo-700 max-w-3xl mx-auto">Debemos educar a los alumnos para que utilicen la IA como un <span class="font-bold text-indigo-900">punto de partida</span> (para ideas, esquemas, explicaciones), no como un <span class="font-bold text-indigo-900">punto final</span> (para copiar y pegar).</p>
+                </div>
+            </div>
+            <div class="absolute bottom-3 right-5 text-sm font-semibold text-gray-500">7/16</div>
+        </section>
+
+        
+<section id="slide-8" class="slide-content bg-gray-900 text-white min-h-[calc(100vh-3rem)] flex items-center">
+    <div class="max-w-7xl mx-auto py-10 px-4 sm:py-16 sm:px-6 lg:px-8">
+        <div class="text-center">
+            <h2 class="text-base font-semibold text-indigo-400 tracking-wide uppercase">Parte 2: Ciencia</h2>
+            <p class="mt-1 text-4xl font-extrabold sm:text-5xl sm:tracking-tight lg:text-6xl">Aceleración de los descubrimientos</p>
+            <p class="max-w-2xl mt-3 mx-auto text-xl text-gray-300">La ciencia moderna genera volúmenes enormes de datos, del orden de los Terabytes. La IA, incluidos los LLM, se convierte en una herramienta indispensable para navegar y comprender este océano de información.</p>
+            <div class="mt-8 mb-8">
+                <img class="rounded-lg shadow mx-auto opacity-80 w-full max-h-96 object-cover" src="img/slide8.png">
+            </div>
+			
+			<div class="bg-gray-50 p-5 rounded-lg shadow text-gray-900"> 
+                <p class="text-md text-indigo-600">A nivel global, el promedio estimado del número de artículos científicos publicados diariamente en el campo de la química es de aproximadamente 200–300.</p>
+				<p class="text-md text-indigo-600">¿Cómo se puede extraer automáticamente información específica de un gran número de artículos científicos? Por ejemplo, ¿cómo se puede extraer de un artículo en formato PDF la lista de moléculas nuevas y sus fórmulas químicas, para crear una nueva base de datos? La información deseada puede presentarse como texto o en forma de imágenes.</p>
+            </div>
+			
+        </div>
+    </div>
+    <div class="absolute bottom-3 right-5 text-sm font-semibold text-indigo-300">8/16</div>
+</section>
+        
+
+<section id="slide-9" class="slide-content bg-white min-h-[calc(100vh-3rem)] flex items-center">
+    <div class="max-w-7xl mx-auto py-10 px-4 sm:py-6 sm:px-6 lg:px-8">
+        <div class="text-center mb-4">
+            <h2 class="text-base font-semibold text-indigo-600 tracking-wide uppercase">Para investigadores</h2>
+            <p class="mt-1 text-4xl font-extrabold text-gray-900 sm:text-5xl sm:tracking-tight">El laboratorio de ideas</p>
+            <p class="max-w-4xl mt-3 mx-auto text-xl text-gray-600">ChatGPT y modelos similares actúan como asistentes de investigación incansables, capaces de procesar y sintetizar información a una velocidad sobrehumana.</p>
+        </div>
+		
+		<div class="flex justify-center items-center mb-6">
+						<img class="rounded-lg shadow w-full  max-h-72 object-cover" src="img/slide9.png">
+				</div>
+				
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            
+            <div class="bg-gray-50 p-3 rounded-lg shadow">
+                <h3 class="text-xl font-bold mb-2 text-indigo-700">Síntesis de literatura especializada</h3>
+                <p class="text-md text-gray-600">Un investigador puede pasar meses leyendo artículos. Un LLM puede resumir rápidamente docenas de artículos científicos, identificando las principales tendencias, las lagunas en la investigación y las conexiones no obvias entre diferentes campos.</p>
+            </div>
+            
+            <div class="bg-gray-50 p-3 rounded-lg shadow">
+                <h3 class="text-xl font-bold mb-2 text-indigo-700">Generación de hipótesis</h3>
+                <p class="text-md text-gray-600">Basándose en los datos existentes, los investigadores pueden usar la IA para una lluvia de ideas avanzada. "¿En base a estos 500 estudios, qué posibles interacciones medicamentosas deberían investigarse para el medicamento X?" La IA puede sugerir nuevas direcciones de investigación.</p>
+            </div>
+            
+            <div class="bg-gray-50 p-3 rounded-lg shadow">
+                <h3 class="text-xl font-bold mb-2 text-indigo-700">Asistencia en redacción y publicación</h3>
+                <p class="text-md text-gray-600">La redacción y edición de artículos científicos es un proceso arduo. La IA ayuda a formular ideas claramente, a corregir la gramática (especialmente para hablantes no nativos de inglés) e incluso a formatear el manuscrito según los requisitos de las revistas.</p>
+            </div>
+            
+            <div class="bg-gray-50 p-3 rounded-lg shadow">
+                <h3 class="text-xl font-bold mb-2 text-indigo-700">Creación de presentaciones completas</h3>
+                <p class="text-md text-gray-600">Además del texto, la IA puede generar estructuras de presentaciones, crear imágenes relevantes y sugerir una estructura lógica de argumentos, simplificando el trabajo de diseminación de resultados.</p>
+            </div>
+            
+            <div class="bg-gray-50 p-3 rounded-lg shadow">
+                <h3 class="text-xl font-bold mb-2 text-indigo-700">Análisis de datos automático</h3>
+                <p class="text-md text-gray-600">Los modelos de IA avanzados pueden cargar, limpiar y analizar grandes conjuntos de datos, ofreciendo visualizaciones rápidas y extrayendo conclusiones estadísticas iniciales, puede interpretar los resultados, dejando al investigador la tarea de validar los resultados.</p>
+            </div>
+            
+            <div class="bg-gray-50 p-3 rounded-lg shadow">
+                <h3 class="text-xl font-bold mb-2 text-indigo-700">Programación por prompts</h3>
+                <p class="text-md text-gray-600">Análisis y visualización rápida de datos complejos, automatización de experimentos y creación de modelos de IA – scripts simples o aplicaciones científicas complejas, funcionales directamente a partir de descripciones en lenguaje natural.</p>
+            </div>
+        </div>
+    </div>
+    <div class="absolute bottom-3 right-5 text-sm font-semibold text-gray-500">9/16</div>
+</section>
+
+   
+
+<section id="slide-10" class="slide-content bg-gray-100">
+    <div class="max-w-7xl mx-auto py-10 px-4 sm:py-16 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+            <h2 class="text-base font-semibold text-indigo-600 tracking-wide uppercase">Estudios de caso avanzados</h2>
+            <p class="mt-1 text-4xl font-extrabold text-gray-900 sm:text-5xl sm:tracking-tight">La IA acelera la investigación</p>
+            <p class="max-w-2xl mt-3 mx-auto text-xl text-gray-600">Modelos de lenguaje grandes (LLM) y modelos de fundación (Foundation Models) que transforman la ciencia.</p>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+            
+            <div class="bg-white rounded-lg shadow">
+                <img src="img/alpha_fold.png" 
+                     alt="AlphaFold" 
+                     class="w-full h-auto rounded-lg">
+            </div>
+            
+            <div class="bg-white rounded-lg shadow">
+                <img src="img/eve.png" 
+                     alt="EVE" 
+                     class="w-full h-auto rounded-lg">
+            </div>
+            
+            <div class="bg-white rounded-lg shadow">
+                <img src="img/chemberta.png" 
+                     alt="ChemBERTa" 
+                     class="w-full h-auto rounded-lg">
+            </div>
+            
+            <div class="bg-white rounded-lg shadow">
+                <img src="img/molformers.png" 
+                     alt="MoLFormers" 
+                     class="w-full h-auto rounded-lg">
+            </div>
+            
+            <div class="bg-white rounded-lg shadow">
+                <img src="img/evo.png" 
+                     alt="EVO2" 
+                     class="w-full h-auto rounded-lg">
+            </div>
+            
+            <div class="bg-white rounded-lg shadow">
+                <img src="img/medgemini.png" 
+                     alt="Med-Gemini" 
+                     class="w-full h-auto rounded-lg">
+            </div>
+        </div>
+    </div>
+    <div class="absolute bottom-3 right-5 text-sm font-semibold text-gray-500">10/16</div>
+</section>
+        
+<section id="slide-11" class="slide-content bg-white">
+    <div class="max-w-7xl mx-auto py-6 px-4 sm:py-8 sm:px-6 lg:px-8 min-h-[calc(100vh-3rem)] flex flex-col justify-center">
+        <div class="text-center mb-2">
+            <h2 class="text-base font-semibold text-indigo-600 tracking-wide uppercase">Aplicación de IA</h2>
+            <p class="mt-1 text-4xl font-extrabold text-gray-900 sm:text-5xl sm:tracking-tight">Monitorización autónoma de virus zoonóticos</p>
+            <p class="max-w-4xl mt-3 mx-auto text-xl text-gray-600">VirSentAI - Modelo de IA tipo HyenaDNA, entrenado para diferenciar entre virus que infectan a humanos y aquellos que no.</p>
+        </div>
+        
+        <div class="flex justify-center mt-6 h-full">
+             <img class="rounded-lg shadow w-full max-w-6xl object-contain" 
+                  src="img/slide-11.png" style="width: 75%; height: 75%;"
+                  alt="[Captura de pantalla del sitio web de VirSentAI]"
+                  onerror="this.onerror=null;this.src='https://placehold.co/1200x600/E0E7FF/333333?text=Imagen+No+Disponible:+VirSentAI';">
+        </div>
+    </div>
+    <div class="absolute bottom-3 right-5 text-sm font-semibold text-gray-500">11/16</div>
+</section>
+        
+<section id="slide-12" class="slide-content bg-white min-h-[calc(100vh-3rem)] flex items-center">
+    <div class="max-w-7xl mx-auto py-10 px-4 sm:py-16 sm:px-6 lg:px-8">
+        <div class="text-center mb-8">
+            <h2 class="text-base font-semibold text-indigo-600 tracking-wide uppercase">Riesgos científicos</h2>
+            <p class="mt-1 text-4xl font-extrabold text-gray-900 sm:text-5xl sm:tracking-tight">La validación es la clave</p>
+            <p class=" mt-3 mx-auto text-xl text-gray-600">El uso de la IA en la ciencia conlleva un conjunto único de desafíos que requieren rigor y escepticismo.</p>
+        </div>
+		
+		<div class="rounded-lg overflow-hidden mx-auto mb-4">
+    
+    <img src="img/slide12.png" 
+         alt="[Imagen horizontal para IA como Caja Negra]" 
+         class="w-full h-auto"> 
+</div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            
+            <div class="bg-rose-50 p-5 rounded-lg border border-rose-200">
+                <h3 class="text-xl font-bold mb-2 text-rose-700">"Caja negra" (Black Box)</h3>
+                <p class="text-md text-gray-600">A veces, un modelo de IA ofrece una respuesta correcta, pero los investigadores no saben <span class="font-bold">exactamente cómo</span> llegó a ella. En ciencia, el "cómo" y el "por qué" son tan importantes como la respuesta en sí.</p>
+            </div>
+            
+            <div class="bg-rose-50 p-5 rounded-lg border border-rose-200">
+                <h3 class="text-xl font-bold mb-2 text-rose-700">Distorsión de los datos</h3>
+                <p class="text-md text-gray-600">Si una IA es entrenada con datos sesgados (por ejemplo, estudios médicos realizados históricamente solo en hombres caucásicos), sus resultados y predicciones también serán sesgados.</p>
+            </div>
+            
+            <div class="bg-rose-50 p-5 rounded-lg border border-rose-200">
+                <h3 class="text-xl font-bold mb-2 text-rose-700">Verificación rigurosa</h3>
+                <p class="text-md text-gray-600">Cualquier hipótesis o resultado generado por la IA debe tratarse como tal: una hipótesis. Esta debe ser luego probada y validada rigurosamente mediante métodos científicos tradicionales.</p>
+            </div>
+        </div>
+    </div>
+    <div class="absolute bottom-3 right-5 text-sm font-semibold text-gray-500">12/16</div>
+</section>
+        
+
+<section id="slide-13" class="slide-content bg-indigo-700 text-white min-h-[calc(100vh-3rem)]">
+            <div class="max-w-7xl mx-auto py-6 px-4 sm:py-8 sm:px-6 lg:px-8">
+                <div class="text-center">
+                    <h2 class="text-base font-semibold text-indigo-300 tracking-wide uppercase">Parte 3: El futuro y la ética</h2>
+                    <p class="mt-1 text-4xl font-extrabold sm:text-5xl sm:tracking-tight lg:text-6xl">¿Hacia dónde nos dirigimos?</p>
+                    <p class="max-w-xl mt-3 mx-auto text-xl text-indigo-100">Tenemos un potencial inmenso por delante, pero viene acompañado de una gran responsabilidad.</p>
+                </div>
+				
+				<div class="rounded-lg overflow-hidden mx-auto mb-4 mt-6">
+    
+					<img src="img/slide13.png" 
+						 class="w-full h-auto"> 
+				</div>
+                
+                <div class="max-w-4xl mx-auto mt-6 p-6 bg-indigo-800/70 rounded-lg shadow border-l-4 border-indigo-400">
+                    <h3 class="text-lg font-bold text-indigo-200 mb-3">Fuente e implicaciones éticas relevantes:</h3>
+                    <p class="text-sm text-indigo-200 mb-4">
+                        <strong class="font-semibold text-white">Comisión Europea: Agencia Ejecutiva Europea de Educación y Cultura</strong><br>
+                        Inteligencia Artificial Explicable en la Educación – Promoviendo la supervisión humana y la responsabilidad compartida – elaborado por el equipo del Hub Europeo de Educación Digital sobre Inteligencia Artificial en la Educación, Oficina de Publicaciones de la Unión Europea, 2025 - <a href="https://data.europa.eu/doi/10.2797/6780469" target="_blank" class="text-indigo-300 hover:text-white underline">https://data.europa.eu/doi/10.2797/6780469</a>.
+                    </p>
+                    <div class="border-t border-indigo-600 pt-4">
+                        <h4 class="text-lg font-bold text-indigo-200 mb-2">Subrayando la supervisión humana:</h4>
+                        <p class="text-md text-indigo-100">En el contexto de la implementación de la IA, es esencial que las herramientas apoyen, no reemplacen, el juicio de los educadores. Se destaca la necesidad de una supervisión humana (<span class="font-bold text-white">Human In The Loop - HITL</span>) competente para validar e intervenir en los resultados de la IA.</p>
+                    </div>
+                </div>
+                
+                </div>
+            <div class="absolute bottom-3 right-5 text-sm font-semibold text-indigo-300">13/16</div>
+        </section>
+
+        
+
+<section id="slide-14" class="slide-content bg-white min-h-[calc(100vh-3rem)] flex items-center">
+    <div class="max-w-7xl mx-auto py-6 px-4 sm:py-8 sm:px-6 lg:px-8">
+        <div class="text-center mb-14">
+            <h2 class="text-base font-semibold text-indigo-600 tracking-wide uppercase">Nuestra visión</h2>
+            <p class="mt-1 text-4xl font-extrabold text-gray-900 sm:text-5xl sm:tracking-tight">El modelo del "Centauro"</p>
+        </div>
+		
+        
+		<div class="rounded-lg overflow-hidden mx-auto mb-4 mt-6">
+    
+					<img src="img/slide14.png" 
+						 class="w-full h-auto"> 
+				</div>
+		
+        <p class="text-xl text-gray-600 mb-8 max-w-4xl mx-auto text-center">El futuro no es "<span class="font-bold text-indigo-700">Humano vs. IA</span>", sino "<span class="font-bold text-indigo-700">Humano + IA</span>". El término proviene del ajedrez, donde un jugador de ajedrez humano promedio, asistido por una computadora (un "<span class="font-bold text-indigo-700">Centauro</span>"), puede vencer a la supercomputadora más potente o al mejor gran maestro humano jugando solo.</p>
+
+                <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="bg-white p-5 rounded-lg shadow">
+                        <h3 class="text-xl font-bold mb-2 text-indigo-700">En la educación:</h3>
+                        <p class="text-md text-gray-600">Un profesor "aumentado" por la IA puede monitorear el progreso individual de cada alumno en tiempo real, ofreciendo atención personalizada, mientras la IA se encarga de las explicaciones básicas.</p>
+                    </div>
+                    <div class="bg-white p-5 rounded-lg shadow">
+                        <h3 class="text-xl font-bold mb-2 text-indigo-700">En la ciencia:</h3>
+                        <p class="text-md text-gray-600">Un investigador "aumentado" por la IA puede procesar datos y generar ideas a una velocidad sin precedentes, concentrándose en la creatividad y la intuición.</p>
+                    </div>
+                    
+                </div>
+		
+    </div>
+	
+    <div class="absolute bottom-3 right-5 text-sm font-semibold text-gray-500">14/16</div>
+</section>
+        
+
+<section id="slide-15" class="slide-content bg-gray-100">
+            <div class="max-w-7xl mx-auto py-6 px-4 sm:py-8 sm:px-6 lg:px-8">
+                <div class="text-center mb-8">
+                    <h2 class="text-base font-semibold text-indigo-600 tracking-wide uppercase">Cierre</h2>
+                    <p class="mt-1 text-4xl font-extrabold text-gray-900 sm:text-5xl sm:tracking-tight">Conclusiones</p>
+                </div>
+				
+				
+				
+				<div class="rounded-lg overflow-hidden mx-auto mb-4 mt-6">
+    
+					<img src="img/slide15.png" 
+						 class="w-full h-auto"> 
+				</div>
+                
+                <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="bg-white p-5 rounded-lg shadow">
+                        <h3 class="text-xl font-bold mb-2 text-indigo-700">La IA es una herramienta, no un oráculo</h3>
+                        <p class="text-md text-gray-600">Su poder reside en la forma inteligente y ética en que la utilizamos. Es un compañero, no un reemplazo para el pensamiento humano.</p>
+                    </div>
+                    <div class="bg-white p-5 rounded-lg shadow">
+                        <h3 class="text-xl font-bold mb-2 text-indigo-700">Personalización en la educación</h3>
+                        <p class="text-md text-gray-600">La IA permite adaptar el proceso de aprendizaje a las necesidades y al ritmo individual de cada alumno.</p>
+                    </div>
+                    <div class="bg-white p-5 rounded-lg shadow">
+                        <h3 class="text-xl font-bold mb-2 text-indigo-700">Aceleración en la ciencia</h3>
+                        <p class="text-md text-gray-600">La IA nos ayuda a encontrar "la aguja en el pajar" en enormes volúmenes de datos, acortando el tiempo desde la hipótesis hasta el descubrimiento.</p>
+                    </div>
+                    <div class="bg-white p-5 rounded-lg shadow">
+                        <h3 class="text-xl font-bold mb-2 text-indigo-700">El pensamiento crítico sigue siendo vital</h3>
+                        <p class="text-md text-gray-600">Más que nunca, la habilidad de hacer las preguntas correctas, verificar la información y guiar a la IA de manera ética es crucial.</p>
+                    </div>
+                </div>
+                
+            </div>
+            <div class="absolute bottom-3 right-5 text-sm font-semibold text-gray-500">15/16</div>
+        </section>
+
+<section id="slide-16" class="slide-content">
+            <div class="relative bg-gray-900 h-[calc(100vh-3rem)] flex flex-col items-center justify-center text-center text-white overflow-hidden">
+                <img src="img/slide1.png"
+				alt="[Imagen de fondo abstracta relacionada con la IA]"
+				class="absolute inset-0 w-full h-full object-cover opacity-30"
+                onerror="this.onerror=null;this.src='https://placehold.co/1920x1080/000033/FFFFFF?text=Imagen+No+Disponible';">
+                <div class="relative z-10 p-4 w-full px-8">
+					<h1 class="text-4xl md:text-6xl font-extrabold tracking-tight mb-4">IA en educación y ciencia:</h1>
+                    <h2 class="text-2xl md:text-4xl lg:text-5xl font-light mb-12 whitespace-nowrap overflow-hidden text-ellipsis"> 
+					Cómo nos ayuda ChatGPT a aprender y descubrir</h2>
+                   
+					
+					<h2 class="text-5xl font-extrabold text-indigo-300 sm:text-6xl mb-6">¡Gracias por su atención!</h2>
+                    <p class="text-3xl text-indigo-100 mb-10">¿Preguntas?</p>
+                    
+                    <div class="mt-16 space-y-1 mb-6 text-gray-300">
+                        <p class="text-xl md:text-2xl font-semibold text-indigo-300">Prof. Dr. Cristian R. Munteanu</p>
+						<div class="flex justify-center space-x-6 mt-8 mb-8">
+		
+							<img class="w-8 h-8 object-contain" 
+								 src="img/logo_udc.png" 
+								 alt="Logo UDC">
+							
+							<img class="w-8 h-8 object-contain" 
+								 src="img/logo_citic.png" 
+								 alt="Logo CITIC">
+
+						</div>
+                        <p class="text-sm">Facultad de Informática</p>
+						<p class="text-sm">Universidad de A Coruña, CITIC</p>
+						<p class="text-sm">España</p>
+                        <p class="text-sm text-indigo-300">c.munteanu@udc.es</p>
+                        <p class="text-sm text-indigo-300">linkedin.com/in/muntisa</p>
+                       
+                    </div>
+
+
+                </div>
+                <div class="absolute bottom-0 left-0 right-0 p-3 bg-gray-800/70 text-gray-300 text-xs md:text-sm">
+                    <p>Ciencia para futuros investigadores: experimentos y conocimiento (ŞTIE) - PN-IV-P10-SS-SC-2024-0045, Programa 5.10 - Ciencia y sociedad, Instituto de Química Física - Ilie Murgulescu</p>
+                </div>
+                <div class="absolute bottom-3 right-5 z-20 text-sm font-semibold text-indigo-300">16/16</div>
+            </div>
+</section>        
+
+
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const navLinks = document.querySelectorAll('.nav-link');
+            const slides = document.querySelectorAll('.slide-content');
+            const menuBtn = document.getElementById('menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            
+            // Seleccionamos los SVGs (para el icono móvil hamburguesa/X)
+            const allSvgs = menuBtn ? menuBtn.querySelectorAll('svg') : [];
+            const hamburgerIcon = allSvgs.length > 0 ? allSvgs[0] : null;
+            const closeIcon = allSvgs.length > 1 ? allSvgs[1] : null;
+
+            // Función para mostrar la página (diapositiva)
+            function showSlide(slideId) {
+                // Ocultamos todas las diapositivas
+                slides.forEach(slide => {
+                    slide.style.display = 'none';
+                });
+
+                // Mostramos la diapositiva deseada
+                const targetSlide = document.getElementById(slideId);
+                if (targetSlide) {
+                    targetSlide.style.display = 'block';
+                }
+
+                // Actualizamos la clase 'active' en la navegación
+                navLinks.forEach(link => {
+                    if (link.dataset.slide === slideId) {
+                        link.classList.add('active'); // Usamos la clase CSS 'active'
+                    } else {
+                        link.classList.remove('active');
+                    }
+                });
+
+                // Cerramos el menú móvil después de hacer clic (si está abierto)
+                if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
+                    mobileMenu.classList.add('hidden');
+                    if (hamburgerIcon) {
+                        hamburgerIcon.classList.remove('hidden');
+                    }
+                    if (closeIcon) {
+                        closeIcon.classList.add('hidden');
+                    }
+                    if (menuBtn) {
+                        menuBtn.setAttribute('aria-expanded', 'false');
+                    }
+                }
+                
+                // Desplazamos de nuevo a la parte superior de la página
+                window.scrollTo(0, 0);
+            }
+
+            // Agregamos event listeners para los enlaces de navegación
+            navLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const slideId = link.dataset.slide;
+                    if (slideId) {
+                        showSlide(slideId);
+                        // Actualiza el hash de la URL
+                        window.location.hash = slideId;
+                    }
+                });
+            });
+
+            // Agregamos event listener para el botón del menú móvil
+            if (menuBtn) { 
+                menuBtn.addEventListener('click', () => {
+                    const isExpanded = menuBtn.getAttribute('aria-expanded') === 'true';
+                    
+                    if (mobileMenu) {
+                        mobileMenu.classList.toggle('hidden');
+                    }
+                    if (hamburgerIcon) {
+                        hamburgerIcon.classList.toggle('hidden');
+                    }
+                    if (closeIcon) {
+                        closeIcon.classList.toggle('hidden');
+                    }
+                    
+                    menuBtn.setAttribute('aria-expanded', !isExpanded);
+                });
+            }
+
+            // Gestión de la navegación con flechas (para una mejor experiencia de presentación)
+            const slideElements = document.querySelectorAll('.slide-content');
+            const slideMap = {};
+            slideElements.forEach((slide, index) => {
+                // Mapeamos el ID de la diapositiva (ej: slide-1, slide-2) a su índice basado en 1
+                slideMap[slide.id] = index + 1; 
+            });
+            const totalSlides = slideElements.length; // Ahora debería ser 16
+
+            let currentSlideIndex = 1;
+
+            function goToNextSlide() {
+                if (currentSlideIndex < totalSlides) {
+                    currentSlideIndex++;
+                    const nextSlideId = `slide-${currentSlideIndex}`;
+                    showSlide(nextSlideId);
+                    window.location.hash = nextSlideId;
+                }
+            }
+
+            function goToPrevSlide() {
+                if (currentSlideIndex > 1) {
+                    currentSlideIndex--;
+                    const prevSlideId = `slide-${currentSlideIndex}`;
+                    showSlide(prevSlideId);
+                    window.location.hash = prevSlideId;
+                }
+            }
+
+            // Escuchamos los eventos de teclado para las flechas izquierda/derecha
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'ArrowRight' || e.key === ' ') { // Flecha derecha o Espacio
+                    goToNextSlide();
+                } else if (e.key === 'ArrowLeft') { // Flecha izquierda
+                    goToPrevSlide();
+                }
+            });
+
+            // Función para determinar el índice de la diapositiva actual (a partir del hash)
+            function getSlideIndexFromHash() {
+                const hash = window.location.hash.substring(1);
+                // Buscamos el ID en nuestro mapa
+                const index = slideMap[hash]; 
+                return index && !isNaN(index) ? index : 1;
+            }
+
+            // Mostramos la diapositiva correcta al cargar la página (según el hash o por defecto slide-1)
+            currentSlideIndex = getSlideIndexFromHash();
+            // Determinamos el ID de la diapositiva a partir del índice (esto funciona porque las diapositivas están numeradas consecutivamente)
+            showSlide(`slide-${currentSlideIndex}`); 
+
+        });
+    </script>
+</body>
+</html>

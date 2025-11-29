@@ -1,0 +1,843 @@
+<!DOCTYPE html>
+<html lang="ro" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI în educație și știință</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        /* Setăm fontul Inter ca implicit */
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        /* Ascundem secțiunile de slide-uri (paginile) implicit */
+        .slide-content {
+            display: none;
+            /* Adaugă poziționare relativă pentru ca numărul slide-ului să funcționeze */
+            position: relative; 
+        }
+        /* Prima pagină (slide-1) este vizibilă la încărcare */
+        #slide-1 {
+            display: block;
+        }
+        /* Stil pentru link-ul de navigare activ */
+        .nav-link.active {
+            color: #4f46e5; /* indigo-600 */
+            font-weight: 700; /* bold */
+            background-color: #f3f4f6; /* gray-100 */
+            border-radius: 0.375rem; /* rounded-md */
+        }
+    </style>
+</head>
+<body class="bg-gray-100 text-gray-900">
+
+    
+
+<header class="bg-white/95 backdrop-blur-sm shadow-md fixed top-0 left-0 right-0 z-50">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+
+<div class="flex justify-between items-center h-12">
+                
+                <div class="flex-shrink-0">
+                    <a href="#slide-1" class="text-xl font-bold text-indigo-600 nav-link" data-slide="slide-1">AI în educație și știință</a>
+                </div>
+
+                
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-4">
+                        <a href="#slide-1" class="nav-link px-3 py-1 rounded-md text-sm font-medium text-gray-700 hover:text-indigo-600 hover:bg-gray-100" data-slide="slide-1">Acasă</a>
+                        <a href="#slide-3" class="nav-link px-3 py-1 rounded-md text-sm font-medium text-gray-700 hover:text-indigo-600 hover:bg-gray-100" data-slide="slide-3">Performanță AI</a>
+                        <a href="#slide-4" class="nav-link px-3 py-1 rounded-md text-sm font-medium text-gray-700 hover:text-indigo-600 hover:bg-gray-100" data-slide="slide-4">Educație</a>
+                        <a href="#slide-8" class="nav-link px-3 py-1 rounded-md text-sm font-medium text-gray-700 hover:text-indigo-600 hover:bg-gray-100" data-slide="slide-8">Știință</a>
+                        <a href="#slide-13" class="nav-link px-3 py-1 rounded-md text-sm font-medium text-gray-700 hover:text-indigo-600 hover:bg-gray-100" data-slide="slide-13">Viitorul</a>
+                        <a href="#slide-15" class="nav-link px-3 py-1 rounded-md text-sm font-medium text-gray-700 hover:text-indigo-600 hover:bg-gray-100" data-slide="slide-15">Concluzii</a>
+                        <a href="#slide-16" class="nav-link px-3 py-1 rounded-md text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700" data-slide="slide-16">Contact</a>
+                    </div>
+                </div>
+
+                
+                <div class="-mr-2 flex md:hidden">
+                    <button id="menu-btn" type="button" class="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500" aria-controls="mobile-menu" aria-expanded="false">
+                        <span class="sr-only">Deschide meniul</span>
+                        
+                        <svg class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                        
+                        <svg class="hidden h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </nav>
+
+        
+        <div class="md:hidden hidden" id="mobile-menu">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#slide-1" class="nav-link block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-indigo-600 hover:bg-gray-100" data-slide="slide-1">Acasă</a>
+                <a href="#slide-3" class="nav-link block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-indigo-600 hover:bg-gray-100" data-slide="slide-3">Performanță AI</a>
+                <a href="#slide-4" class="nav-link block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-indigo-600 hover:bg-gray-100" data-slide="slide-4">Educație</a>
+                <a href="#slide-8" class="nav-link block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-indigo-600 hover:bg-gray-100" data-slide="slide-8">Știință</a>
+                <a href="#slide-13" class="nav-link block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-indigo-600 hover:bg-gray-100" data-slide="slide-13">Viitorul</a>
+                <a href="#slide-15" class="nav-link block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-indigo-600 hover:bg-gray-100" data-slide="slide-15">Concluzii</a>
+                <a href="#slide-16" class="nav-link block px-3 py-2 rounded-md text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700" data-slide="slide-16">Contact</a>
+            </div>
+        </div>
+    </header>
+
+    
+
+<main class="pt-12">
+
+        
+
+<section id="slide-1" class="slide-content">
+            <div class="relative bg-gray-900 h-[calc(100vh-3rem)] flex flex-col items-center justify-center text-center text-white overflow-hidden">
+                <img src="img/slide1.png"
+				alt="[Imagine de fundal abstractă legată de AI]"
+				class="absolute inset-0 w-full h-full object-cover opacity-30"
+                onerror="this.onerror=null;this.src='https://placehold.co/1920x1080/000033/FFFFFF?text=Imagine+Indisponibilă';">
+                <div class="relative z-10 p-4 w-full px-8">
+					<h1 class="text-4xl md:text-6xl font-extrabold tracking-tight mb-4">AI în educație și știință:</h1>
+                    <h2 class="text-2xl md:text-4xl lg:text-5xl font-light mb-6 whitespace-nowrap overflow-hidden text-ellipsis"> 
+					Cum ne ajută ChatGPT să învățăm și să descoperim</h2>
+                    <a href="#slide-2" class="nav-link inline-block bg-indigo-600 text-white font-bold py-3 px-8 rounded-lg text-lg hover:bg-indigo-700 transition duration-300 mb-6" data-slide="slide-2">Începe explorarea</a>
+                    
+                    <div class="mt-16 space-y-1 mb-6 text-gray-300">
+                        <p class="text-xl md:text-2xl font-semibold text-indigo-300">Prof. Dr. Cristian R. Munteanu</p>
+						<div class="flex justify-center space-x-6 mt-8 mb-8">
+		
+							<img class="w-8 h-8 object-contain" 
+								 src="img/logo_udc.png" 
+								 alt="Logo UDC">
+							
+							<img class="w-8 h-8 object-contain" 
+								 src="img/logo_citic.png" 
+								 alt="Logo CITIC">
+
+						</div>
+                        <p class="text-sm">Facultatea de Informatică</p>
+						<p class="text-sm">Universitatea din A Coruña, CITIC</p>
+						<p class="text-sm">Spania</p>
+                        <p class="text-sm text-indigo-300">c.munteanu@udc.es</p>
+                        <p class="text-sm text-indigo-300">linkedin.com/in/muntisa</p>
+                        <p class="text-xs pt-1 font-light">31 Octombrie 2025</p>
+                    </div>
+
+
+                </div>
+                <div class="absolute bottom-0 left-0 right-0 p-3 bg-gray-800/70 text-gray-300 text-xs md:text-sm">
+                    <p>Ştiinţa pentru viitorii cercetători: experimente şi cunoaştere (ŞTIE) - PN-IV-P10-SS-SC-2024-0045, Programul 5.10 - Ştiinţă şi societate, Institutul de Chimie Fizică - Ilie Murgulescu</p>
+                </div>
+                <div class="absolute bottom-3 right-5 z-20 text-sm font-semibold text-indigo-300">1/16</div>
+            </div>
+</section>
+
+        
+
+<section id="slide-2" class="slide-content">
+            <div class="max-w-7xl mx-auto py-10 px-4 sm:py-16 sm:px-6 lg:px-8">
+                <div class="text-center">
+                    <h2 class="text-base font-semibold text-indigo-600 tracking-wide uppercase">Introducere</h2>
+                    <p class="mt-1 text-4xl font-extrabold text-gray-900 sm:text-5xl sm:tracking-tight lg:text-6xl">Prezentare generală</p>
+                </div>
+                <div class="mt-16 grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+				
+                    <div class="bg-gray-50 p-5 rounded-lg shadow lg:col-span-1">
+                        <h3 class="text-2xl font-bold mb-3 text-indigo-700">Ce este inteligența artificială (AI)?</h3>
+                        <p class="text-lg text-gray-600 mb-4">Pe scurt, inteligența artificială reprezintă sisteme informatice care pot îndeplini sarcini ce necesită în mod normal inteligență umană. Aceasta include activități precum învățarea din experiență, recunoașterea tiparelor, rezolvarea problemelor complexe și înțelegerea limbajului natural.</p>
+                        
+                        
+                        <h3 class="text-2xl font-bold mb-3 text-indigo-700">Ce este ChatGPT?</h3>
+                        <p class="text-lg text-gray-600 mb-4">ChatGPT este un tip specific și avansat de AI, cunoscut ca un Model Lingvistic Mare (Large Language Model - LLM). A fost antrenat pe cantități uriașe de text de pe internet și este specializat în a înțelege contextul, a genera text coerent și a purta conversații într-un mod surprinzător de natural <span class="font-semibold">(nu memorează propozițiile)</span>. Gândiți-vă la el ca la un asistent universal de limbaj, gata să explice, să scrie și să creeze.</p>
+
+                        <h3 class="text-2xl font-bold mb-3 text-indigo-700">Următoarele secțiuni</h3>
+                        <ul class="list-disc list-inside text-lg text-gray-600 space-y-1">
+                            <li>Impactul AI în educație</li>
+                            <li>Rolul AI în știință</li>
+                            <li>Viitorul și provocările etice ale acestei tehnologii</li>
+                        </ul>
+                    </div>
+                    <div class="flex flex-col justify-center items-center">
+                     
+                        <img class="rounded-lg shadow w-full max-w-lg" src="img/slide2.png">
+                        <div class="bg-gray-700/80 p-3 rounded-lg shadow border-l-4 border-indigo-400 max-w-lg mx-auto mt-8">
+                            <p class="text-md text-white font-medium">
+                                <span class="font-bold">ChatGPT-5</span> are o arhitectura Transformer și a fost antrenat pe o cantitate de date de aproximativ 1.000 de ori mai mare decât cea citită de un om într-o viață. Modelul are peste 1-2 trilioane de parametrii.
+                            </p>
+                        </div>
+                    </div>
+                
+				</div>
+            </div>
+            <div class="absolute bottom-3 right-5 text-sm font-semibold text-gray-500">2/16</div>
+        </section>
+
+       
+<section id="slide-3" class="slide-content min-h-[calc(100vh-3rem)] flex items-center">
+    <div class="max-w-7xl mx-auto py-10 px-4 sm:py-16 sm:px-6 lg:px-8">
+        <div class="text-center mb-14">
+            <h2 class="text-base font-semibold text-indigo-600 tracking-wide uppercase">Performanța AI</h2>
+            
+            <p class="mt-1 text-4xl font-extrabold text-gray-900 sm:text-5xl sm:tracking-tight lg:text-6xl">Depășirea limitei umane</p>
+            <p class="mt-2 text-2xl font-semibold text-gray-700 sm:text-3xl sm:tracking-tight">Evoluția performanței AI pe întrebări științifice de nivel PhD (GPQA Diamond)
+        </div>
+		<div class="mt-8 flex justify-center w-full">
+			<img class="rounded-lg shadow mx-auto w-full max-w-7xl max-h-[70vh] h-auto object-contain" 
+				 src="img/slide3.png"
+				 style="width: 85%; height: 85%;">
+		</div>
+
+
+    </div>
+    <div class="absolute bottom-3 right-5 text-sm font-semibold text-gray-500">3/16</div>
+</section>
+        
+
+<section id="slide-4" class="slide-content bg-gray-100">
+            <div class="max-w-7xl mx-auto py-6 px-4 sm:py-10 sm:px-6 lg:px-8"> 
+                <div class="text-center">
+                    <h2 class="text-base font-semibold text-indigo-600 tracking-wide uppercase">Partea 1: Educație</h2>
+                    <p class="mt-1 text-4xl font-extrabold text-gray-900 sm:text-5xl sm:tracking-tight lg:text-6xl">Un partener de studiu personalizat</p>
+                    <p class="max-w-4xl mt-3 mx-auto text-xl text-gray-600">Inteligența Artificială nu înlocuiește profesorul, ci oferă instrumente revoluționare atât pentru elevi, cât și pentru profesori, personalizând experiența de învățare.</p>
+                    
+                    <div class="mt-8 flex justify-center w-full">
+    <img class="rounded-lg shadow mx-auto w-full max-w-7xl max-h-[70vh] h-auto object-contain" 
+         src="img/slide4.png" 
+         alt="[O sală de clasă modernă, cu elevi folosind tablete]"
+         onerror="this.onerror=null;this.src='https://placehold.co/1000x500/FFFFFF/333333?text=Imagine+Indisponibilă';">
+</div>
+                </div>
+            </div>
+            <div class="absolute bottom-3 right-5 text-sm font-semibold text-gray-500">4/16</div>
+        </section>
+
+        
+
+<section id="slide-5" class="slide-content bg-white min-h-[calc(100vh-3rem)] flex items-center">
+            <div class="max-w-7xl mx-auto py-10 px-4 sm:py-6 sm:px-6 lg:px-8">
+                <div class="text-center mb-8">
+                    <h2 class="text-base font-semibold text-indigo-600 tracking-wide uppercase">Pentru elevi și studenți</h2>
+                    <p class="mt-1 text-4xl font-extrabold text-gray-900 sm:text-5xl sm:tracking-tight">Tutorul virtual nonstop</p>
+                    <p class="max-w-3xl mt-3 mx-auto text-xl text-gray-600">Cum transformă ChatGPT și alte modele AI procesul de învățare individuală</p>
+                </div>
+				
+				<div class="flex justify-center items-center mb-6">
+						<img class="rounded-lg shadow w-full  max-h-72 object-cover" src="img/slide5.png">
+				</div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 ">
+                    
+                    <div class="bg-gray-50 p-5 rounded-lg shadow lg:col-span-2">
+                        <h3 class="text-xl font-bold mb-2 text-indigo-700">Explicarea conceptelor complexe</h3>
+                        <p class="text-md text-gray-600 mb-3">AI poate descompune idei complexe în părți ușor de înțeles, adaptate nivelului fiecăruia, de la un copil de 10 ani până la nivel universitar.</p>
+                        <p class="text-sm font-bold">Prompt: "Care este diferența fundamentală dintre mecanica cuantică și relativitatea generală? Explică-mi ca unui copil de 10 ani."</p>
+                    </div>
+                    
+                    <div class="bg-gray-50 p-5 rounded-lg shadow lg:col-span-2">
+                        <h3 class="text-xl font-bold mb-2 text-indigo-700">Rezumate clare</h3>
+                        <p class="text-md text-gray-600 mb-3">Obține rezumate clare din texte lungi, cărți, clipuri video, audio sau imagini. AI extrage punctele esențiale ca să înțelegi ideile principale.</p>
+                        <p class="text-sm font-bold">Prompt: "Rezumă principalele idei din aceste surse despre reacțiile chimice, explicând pe scurt cum se formează și se descompun substanțele."</p>
+                    </div>
+                    
+                    
+
+                    <div class="bg-gray-50 p-5 rounded-lg shadow lg:col-span-2">
+                        <h3 class="text-xl font-bold mb-2 text-indigo-700">Partener de brainstorming și scriere</h3>
+                        <p class="text-md text-gray-600 mb-3">Dacă vrei să-ți structurezi argumentele, AI poate acționa ca un partener de discuție. Îți poate oferi idei, te poate ajuta să creezi o schiță sau să-ți rafinezi stilul și gramatica, acționând ca un editor personal.</p>
+                        <p class="text-sm font-bold">Prompt: "Scrie o introducere captivantă pentru un eseu despre impactul inteligenței artificiale în educație. Folosește un ton academic, dar prietenos."</p>
+                    </div>
+					
+					<div class="bg-gray-50 p-5 rounded-lg shadow lg:col-span-2">
+                        <h3 class="text-xl font-bold mb-2 text-indigo-700">Generare exerciții de auto-testare</h3>
+                        <p class="text-md text-gray-600 mb-3">Creează exerciții, întrebări sau simulări de examen pe baza oricărui material de studiu. Este modul perfect de a verifica dacă ai înțeles cu adevărat materia, înainte de examene.</p>
+                        <p class="text-sm font-bold">Prompt:"Creează 5 întrebări de tip grilă și 5 fișe pentru recapitularea reacțiilor de oxidare-reducere, potrivite pentru un elev de liceu."</p>
+                    </div>
+                    
+                    </div>
+            </div>
+            <div class="absolute bottom-3 right-5 text-sm font-semibold text-gray-500">5/16</div>
+        </section>
+
+        
+
+<section id="slide-6" class="slide-content bg-gray-100">
+            <div class="max-w-7xl mx-auto py-6 px-4 sm:py-8 sm:px-6 lg:px-8">
+                <div class="text-center mb-8">
+                    <h2 class="text-base font-semibold text-indigo-600 tracking-wide uppercase">Pentru profesori</h2>
+                    <p class="mt-1 text-4xl font-extrabold text-gray-900 sm:text-5xl sm:tracking-tight">Asistentul neobosit</p>
+                    <p class="max-w-2xl mt-3 mx-auto text-xl text-gray-600">AI economisește timp prețios pentru profesori, permițându-le să se concentreze pe ceea ce contează: interacțiunea umană și predarea.</p>
+                </div>
+			
+				<div class="flex justify-center items-center mb-6">
+						<img class="rounded-lg shadow w-full  max-h-72 object-cover" src="img/slide6.png" alt="[Un profesor la birou, părând mulțumit]"
+						onerror="this.onerror=null;this.src='https://placehold.co/700x400/FFFFFF/333333?text=Imagine+Indisponibilă';">
+				</div>
+	
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    
+                    <div class="bg-white p-5 rounded-lg shadow">
+                        <h3 class="text-xl font-bold mb-2 text-indigo-700">Crearea de materiale didactice</h3>
+                        <p class="text-md text-gray-600 mb-3">Generarea de planuri de lecție adaptate, crearea de exemple relevante, probleme de matematică cu niveluri de dificultate variate sau studii de caz pentru orele de științe sociale. AI poate produce conținut personalizat în câteva secunde.</p>
+                        <p class="text-sm font-bold">Prompt: "Generează un plan de lecție pentru clasa a X-a, la matematică, pe tema funcțiilor, care să includă exemple din viața reală și exerciții de dificultate variată."</p>
+                    </div>
+                    
+                    <div class="bg-white p-5 rounded-lg shadow">
+                        <h3 class="text-xl font-bold mb-2 text-indigo-700">Instrumente de evaluare</h3>
+                        <p class="text-md text-gray-600 mb-3">Crearea de întrebări pentru teste (cu răspunsuri multiple, deschise, adevărat/fals) pe baza unui text dat. De asemenea, poate genera rubrici de evaluare detaliate pentru eseuri sau proiecte, asigurând o notare obiectivă și transparentă.</p>
+                        <p class="text-sm font-bold">Prompt: "Creează 10 întrebări de tip grilă și 5 întrebări deschise despre reacțiile de oxidare-reducere, plus o rubrică de evaluare pentru un eseu despre importanța reacțiilor redox în industrie."</p>
+                    </div>
+                    
+                    <div class="bg-white p-5 rounded-lg shadow md:col-span-2 lg:col-span-1">
+                        <h3 class="text-xl font-bold mb-2 text-indigo-700">Automatizarea sarcinilor administrative</h3>
+                        <p class="text-md text-gray-600 mb-3">Sarcinile care consumă timp, cum ar fi redactarea e-mailurilor către părinți, scrierea de recomandări sau rezumarea unor documente educaționale lungi, pot fi acum delegate către AI, economisind timp important din programul unui profesor.</p>
+                        <p class="text-sm font-bold">Exemplu de prompt: "Redactează un e-mail către părinți pentru a anunța ședința de semestru și rezumă acest document de 10 pagini despre strategii educaționale."</p>
+                    </div>
+                </div>
+                
+            </div>
+            <div class="absolute bottom-3 right-5 text-sm font-semibold text-gray-500">6/16</div>
+        </section>
+
+        
+
+<section id="slide-7" class="slide-content bg-white min-h-[calc(100vh-3rem)]">
+            <div class="max-w-7xl mx-auto py-6 px-4 sm:py-6 sm:px-6 lg:px-8">
+                <div class="text-center mb-8">
+                    <h2 class="text-base font-semibold text-indigo-600 tracking-wide uppercase">Echilibru inteligent</h2>
+                    <p class="mt-1 text-4xl font-extrabold text-gray-900 sm:text-5xl sm:tracking-tight">Oportunități vs. provocări</p>
+                </div>
+
+				<div class="flex justify-center items-center mb-6">
+						<img class="rounded-lg shadow w-full  max-h-72 object-cover" src="img/slide7.png">
+				</div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-start">
+                    
+                    <div class="bg-emerald-50 p-5 rounded-lg border border-emerald-200">
+                        <h3 class="text-2xl font-bold mb-3 text-emerald-700">Beneficii mari</h3>
+                        <ul class="space-y-9">
+                            <li class="flex items-start">
+                                <svg class="flex-shrink-0 h-6 w-6 text-emerald-500 mr-3 mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                <div>
+                                    <h4 class="text-lg font-semibold">Învățare personalizată</h4>
+                                    <p class="text-md text-gray-600">Fiecare elev poate învăța în ritmul său, primind explicații adaptate nevoilor sale specifice, un lux imposibil într-o clasă de 30 de elevi.</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="flex-shrink-0 h-6 w-6 text-emerald-500 mr-3 mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                <div>
+                                    <h4 class="text-lg font-semibold">Accesibilitate nonstop</h4>
+                                    <p class="text-md text-gray-600">Resursele de învățare și <span class="font-bold text-emerald-800">asistentul</span> AI sunt disponibile oricând, eliminând barierele de timp și locație.</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    
+                    <div class="bg-rose-50 p-5 rounded-lg border border-rose-200">
+                        <h3 class="text-2xl font-bold mb-3 text-rose-700">Provocări de gestionat</h3>
+                        <ul class="space-y-3">
+                            <li class="flex items-start">
+                                <svg class="flex-shrink-0 h-6 w-6 text-rose-500 mr-3 mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
+                                <div>
+                                    <h4 class="text-lg font-semibold">Plagiatul și gândirea critică</h4>
+                                    <p class="text-md text-gray-600">Provocarea este să ne asigurăm că elevii folosesc AI pentru a-și <span class="font-bold text-rose-800">îmbunătăți</span> gândirea, nu pentru a o <span class="font-bold text-rose-800">înlocui</span>. Cum evaluăm originalitatea?</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="flex-shrink-0 h-6 w-6 text-rose-500 mr-3 mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
+                                <div>
+                                    <h4 class="text-lg font-semibold">Acuratețea informațiilor</h4>
+                                    <p class="text-md text-gray-600">Modelele AI pot <span class="font-bold text-rose-800">halucina</span> – pot inventa fapte și surse cu o încredere deplină. Verificarea informațiilor devine o abilitate crucială.</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="mt-8 text-center p-5 bg-indigo-50 rounded-lg">
+                    <h3 class="text-2xl font-bold text-indigo-800">Soluția</h3>
+                    <p class="mt-2 text-xl text-indigo-700 max-w-3xl mx-auto">Trebuie să educăm elevii să folosească AI ca pe un <span class="font-bold text-indigo-900">punct de plecare</span> (pentru idei, schițe, explicații), nu ca pe un <span class="font-bold text-indigo-900">punct final</span> (pentru copy-paste).</p>
+                </div>
+            </div>
+            <div class="absolute bottom-3 right-5 text-sm font-semibold text-gray-500">7/16</div>
+        </section>
+
+        
+<section id="slide-8" class="slide-content bg-gray-900 text-white min-h-[calc(100vh-3rem)] flex items-center">
+    <div class="max-w-7xl mx-auto py-10 px-4 sm:py-16 sm:px-6 lg:px-8">
+        <div class="text-center">
+            <h2 class="text-base font-semibold text-indigo-400 tracking-wide uppercase">Partea 2: Știință</h2>
+            <p class="mt-1 text-4xl font-extrabold sm:text-5xl sm:tracking-tight lg:text-6xl">Accelerarea descoperirilor</p>
+            <p class="max-w-2xl mt-3 mx-auto text-xl text-gray-300">Știința modernă generează volume uriașe de date, de ordinul Terabaiților. AI, inclusiv LLM-urile, devin instrumente indispensabile pentru a naviga și a înțelege acest ocean de informații.</p>
+            <div class="mt-8 mb-8">
+                <img class="rounded-lg shadow mx-auto opacity-80 w-full max-h-96 object-cover" src="img/slide8.png">
+            </div>
+			
+			<div class="bg-gray-50 p-5 rounded-lg shadow text-gray-900"> 
+                <p class="text-md text-indigo-600">La nivel global, media estimată a numărului de articole științifice publicate zilnic în domeniul chimiei este de aproximativ 200–300.</p>
+				<p class="text-md text-indigo-600">Cum poți extrage automat o informație specifică dintr-un număr mare de articole științifice? De exemplu, cum poți extrage dintr-un articol în format PDF lista de molecule noi și formulele lor chimice, pentru a crea o bază de date nouă? Informația dorită poate fi prezentă fie ca text, fie sub formă de imagini.</p>
+            </div>
+			
+        </div>
+    </div>
+    <div class="absolute bottom-3 right-5 text-sm font-semibold text-indigo-300">8/16</div>
+</section>
+        
+
+<section id="slide-9" class="slide-content bg-white min-h-[calc(100vh-3rem)] flex items-center">
+    <div class="max-w-7xl mx-auto py-10 px-4 sm:py-6 sm:px-6 lg:px-8">
+        <div class="text-center mb-4">
+            <h2 class="text-base font-semibold text-indigo-600 tracking-wide uppercase">Pentru cercetători</h2>
+            <p class="mt-1 text-4xl font-extrabold text-gray-900 sm:text-5xl sm:tracking-tight">Laboratorul de idei</p>
+            <p class="max-w-4xl mt-3 mx-auto text-xl text-gray-600">ChatGPT și modelele similare acționează ca niște asistenți de cercetare neobosiți, capabili să proceseze și să sintetizeze informații la o viteză supraomenească.</p>
+        </div>
+		
+		<div class="flex justify-center items-center mb-6">
+						<img class="rounded-lg shadow w-full  max-h-72 object-cover" src="img/slide9.png">
+				</div>
+				
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            
+            <div class="bg-gray-50 p-3 rounded-lg shadow">
+                <h3 class="text-xl font-bold mb-2 text-indigo-700">Sinteza literaturii de specialitate</h3>
+                <p class="text-md text-gray-600">Un cercetător poate petrece luni de zile citind articole. Un LLM poate rezuma rapid zeci de articole științifice, identificând tendințele majore, lacunele în cercetare și conexiunile neevidente între diferite domenii.</p>
+            </div>
+            
+            <div class="bg-gray-50 p-3 rounded-lg shadow">
+                <h3 class="text-xl font-bold mb-2 text-indigo-700">Generarea de ipoteze</h3>
+                <p class="text-md text-gray-600">Pe baza datelor existente, cercetătorii pot folosi AI pentru un brainstorming avansat. "Pe baza acestor 500 de studii, ce potențiale interacțiuni medicamentoase ar trebui investigate pentru medicamentul X?" AI poate sugera noi direcții de cercetare.</p>
+            </div>
+            
+            <div class="bg-gray-50 p-3 rounded-lg shadow">
+                <h3 class="text-xl font-bold mb-2 text-indigo-700">Asistență la scriere și publicare</h3>
+                <p class="text-md text-gray-600">Redactarea și editarea articolelor științifice este un proces anevoios. AI ajută la formularea clară a ideilor, la corectarea gramaticii (în special pentru non-vorbitorii nativi de engleză) și chiar la formatarea manuscrisului conform cerințelor revistelor.</p>
+            </div>
+            
+            <div class="bg-gray-50 p-3 rounded-lg shadow">
+                <h3 class="text-xl font-bold mb-2 text-indigo-700">Crearea de prezentări complete</h3>
+                <p class="text-md text-gray-600">Pe lângă text, AI poate genera structuri de prezentări, poate crea imagini relevante și poate sugera o structură logică de argumente, simplificând munca de diseminare a rezultatelor.</p>
+            </div>
+            
+            <div class="bg-gray-50 p-3 rounded-lg shadow">
+                <h3 class="text-xl font-bold mb-2 text-indigo-700">Analiza de date automată</h3>
+                <p class="text-md text-gray-600">Modelele AI avansate pot încărca, curăța și analiza seturi mari de date, oferind vizualizări rapide și extrăgând concluzii statistice inițiale, poate interpreta rezultatele, lăsând cercetătorului sarcina de a valida rezultatele.</p>
+            </div>
+            
+            <div class="bg-gray-50 p-3 rounded-lg shadow">
+                <h3 class="text-xl font-bold mb-2 text-indigo-700">Programare prin prompturi</h3>
+                <p class="text-md text-gray-600">Analiza și vizualizarea rapidă a datelor complexe, automatizarea experimentelor și crearea de modele AI – scripturi simple sau aplicații științifice complexe, funcționale direct din descrieri în limbaj natural.</p>
+            </div>
+        </div>
+    </div>
+    <div class="absolute bottom-3 right-5 text-sm font-semibold text-gray-500">9/16</div>
+</section>
+
+   
+
+<section id="slide-10" class="slide-content bg-gray-100">
+    <div class="max-w-7xl mx-auto py-10 px-4 sm:py-16 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+            <h2 class="text-base font-semibold text-indigo-600 tracking-wide uppercase">Studii de caz avansate</h2>
+            <p class="mt-1 text-4xl font-extrabold text-gray-900 sm:text-5xl sm:tracking-tight">AI accelerează cercetarea</p>
+            <p class="max-w-2xl mt-3 mx-auto text-xl text-gray-600">Modele lingvistice mari (LLM) și modele de bază (Foundation Models) care transformă știința.</p>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+            
+            <div class="bg-white rounded-lg shadow">
+                <img src="img/alpha_fold.png" 
+                     alt="AlphaFold" 
+                     class="w-full h-auto rounded-lg">
+            </div>
+            
+            <div class="bg-white rounded-lg shadow">
+                <img src="img/eve.png" 
+                     alt="EVE" 
+                     class="w-full h-auto rounded-lg">
+            </div>
+            
+            <div class="bg-white rounded-lg shadow">
+                <img src="img/chemberta.png" 
+                     alt="ChemBERTa" 
+                     class="w-full h-auto rounded-lg">
+            </div>
+            
+            <div class="bg-white rounded-lg shadow">
+                <img src="img/molformers.png" 
+                     alt="MoLFormers" 
+                     class="w-full h-auto rounded-lg">
+            </div>
+            
+            <div class="bg-white rounded-lg shadow">
+                <img src="img/evo.png" 
+                     alt="EVO2" 
+                     class="w-full h-auto rounded-lg">
+            </div>
+            
+            <div class="bg-white rounded-lg shadow">
+                <img src="img/medgemini.png" 
+                     alt="Med-Gemini" 
+                     class="w-full h-auto rounded-lg">
+            </div>
+        </div>
+    </div>
+    <div class="absolute bottom-3 right-5 text-sm font-semibold text-gray-500">10/16</div>
+</section>
+        
+<section id="slide-11" class="slide-content bg-white">
+    <div class="max-w-7xl mx-auto py-6 px-4 sm:py-8 sm:px-6 lg:px-8 min-h-[calc(100vh-3rem)] flex flex-col justify-center">
+        <div class="text-center mb-2">
+            <h2 class="text-base font-semibold text-indigo-600 tracking-wide uppercase">Aplicație AI</h2>
+            <p class="mt-1 text-4xl font-extrabold text-gray-900 sm:text-5xl sm:tracking-tight">Monitorizarea autonomă a virusurilor zoonotice</p>
+            <p class="max-w-4xl mt-3 mx-auto text-xl text-gray-600">VirSentAI - Model AI de tip HyenaDNA, antrenat să facă diferența între virusurile care infectează oamenii și cele care nu infectează.</p>
+        </div>
+        
+        <div class="flex justify-center mt-6 h-full">
+             <img class="rounded-lg shadow w-full max-w-6xl object-contain" 
+                  src="img/slide-11.png" style="width: 75%; height: 75%;"
+                  alt="[Captură de ecran a site-ului VirSentAI]"
+                  onerror="this.onerror=null;this.src='https://placehold.co/1200x600/E0E7FF/333333?text=Imagine+Indisponibilă: VirSentAI';">
+        </div>
+    </div>
+    <div class="absolute bottom-3 right-5 text-sm font-semibold text-gray-500">11/16</div>
+</section>
+        
+<section id="slide-12" class="slide-content bg-white min-h-[calc(100vh-3rem)] flex items-center">
+    <div class="max-w-7xl mx-auto py-10 px-4 sm:py-16 sm:px-6 lg:px-8">
+        <div class="text-center mb-8">
+            <h2 class="text-base font-semibold text-indigo-600 tracking-wide uppercase">Riscuri științifice</h2>
+            <p class="mt-1 text-4xl font-extrabold text-gray-900 sm:text-5xl sm:tracking-tight">Validarea este cheia</p>
+            <p class=" mt-3 mx-auto text-xl text-gray-600">Folosirea AI în știință vine cu un set unic de provocări care necesită rigoare și scepticism.</p>
+        </div>
+		
+		<div class="rounded-lg overflow-hidden mx-auto mb-4">
+    
+    <img src="img/slide12.png" 
+         alt="[Imagine orizontală pentru AI ca Black Box]" 
+         class="w-full h-auto"> 
+</div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            
+            <div class="bg-rose-50 p-5 rounded-lg border border-rose-200">
+                <h3 class="text-xl font-bold mb-2 text-rose-700">"Cutia neagră" (Black Box)</h3>
+                <p class="text-md text-gray-600">Uneori, un model AI oferă un răspuns corect, dar cercetătorii nu știu <span class="font-bold">exact cum</span> a ajuns la el. În știință, "cum" și "de ce" sunt la fel de importante ca răspunsul în sine.</p>
+            </div>
+            
+            <div class="bg-rose-50 p-5 rounded-lg border border-rose-200">
+                <h3 class="text-xl font-bold mb-2 text-rose-700">Distorsiunea datelor</h3>
+                <p class="text-md text-gray-600">Dacă un AI este antrenat pe date părtinitoare (de exemplu, studii medicale efectuate istoric doar pe bărbați caucazieni), rezultatele și predicțiile sale vor fi, de asemenea, părtinitoare.</p>
+            </div>
+            
+            <div class="bg-rose-50 p-5 rounded-lg border border-rose-200">
+                <h3 class="text-xl font-bold mb-2 text-rose-700">Verificarea riguroasă</h3>
+                <p class="text-md text-gray-600">Orice ipoteză sau rezultat generat de AI trebuie tratat ca atare – o ipoteză. Aceasta trebuie apoi testată și validată riguros prin metode științifice tradiționale.</p>
+            </div>
+        </div>
+    </div>
+    <div class="absolute bottom-3 right-5 text-sm font-semibold text-gray-500">12/16</div>
+</section>
+        
+
+<section id="slide-13" class="slide-content bg-indigo-700 text-white min-h-[calc(100vh-3rem)]">
+            <div class="max-w-7xl mx-auto py-6 px-4 sm:py-8 sm:px-6 lg:px-8">
+                <div class="text-center">
+                    <h2 class="text-base font-semibold text-indigo-300 tracking-wide uppercase">Partea 3: Viitorul și etica</h2>
+                    <p class="mt-1 text-4xl font-extrabold sm:text-5xl sm:tracking-tight lg:text-6xl">Încotro ne îndreptăm?</p>
+                    <p class="max-w-xl mt-3 mx-auto text-xl text-indigo-100">Avem în față un potențial imens, dar acesta vine la pachet cu o responsabilitate pe măsură.</p>
+                </div>
+				
+				<div class="rounded-lg overflow-hidden mx-auto mb-4 mt-6">
+    
+					<img src="img/slide13.png" 
+						 class="w-full h-auto"> 
+				</div>
+                
+                <div class="max-w-4xl mx-auto mt-6 p-6 bg-indigo-800/70 rounded-lg shadow border-l-4 border-indigo-400">
+                    <h3 class="text-lg font-bold text-indigo-200 mb-3">Sursă și implicații etice relevante:</h3>
+                    <p class="text-sm text-indigo-200 mb-4">
+                        <strong class="font-semibold text-white">Comisia Europeană: Agenția Executivă Europeană pentru Educație și Cultură</strong><br>
+                        Inteligența artificială explicabilă în educație – Promovarea supravegherii umane și a responsabilității comune – elaborat de echipa Hubului european pentru educație digitală privind inteligența artificială în educație, Oficiul pentru Publicații al Uniunii Europene, 2025 - <a href="https://data.europa.eu/doi/10.2797/6780469" target="_blank" class="text-indigo-300 hover:text-white underline">https://data.europa.eu/doi/10.2797/6780469</a>.
+                    </p>
+                    <div class="border-t border-indigo-600 pt-4">
+                        <h4 class="text-lg font-bold text-indigo-200 mb-2">Sublinierea supravegherii umane:</h4>
+                        <p class="text-md text-indigo-100">În contextul implementării AI, este esențial ca instrumentele să sprijine, nu să înlocuiască, judecata educatorilor. Se evidențiază necesitatea unei supravegheri umane (<span class="font-bold text-white">Human In The Loop - HITL</span>) competente pentru a valida și a interveni în rezultatele AI.</p>
+                    </div>
+                </div>
+                
+                </div>
+            <div class="absolute bottom-3 right-5 text-sm font-semibold text-indigo-300">13/16</div>
+        </section>
+
+        
+
+<section id="slide-14" class="slide-content bg-white min-h-[calc(100vh-3rem)] flex items-center">
+    <div class="max-w-7xl mx-auto py-6 px-4 sm:py-8 sm:px-6 lg:px-8">
+        <div class="text-center mb-14">
+            <h2 class="text-base font-semibold text-indigo-600 tracking-wide uppercase">Viziunea noastră</h2>
+            <p class="mt-1 text-4xl font-extrabold text-gray-900 sm:text-5xl sm:tracking-tight">Modelul "Centaurului"</p>
+        </div>
+		
+        
+		<div class="rounded-lg overflow-hidden mx-auto mb-4 mt-6">
+    
+					<img src="img/slide14.png" 
+						 class="w-full h-auto"> 
+				</div>
+		
+        <p class="text-xl text-gray-600 mb-8 max-w-4xl mx-auto text-center">Viitorul nu este "<span class="font-bold text-indigo-700">Om vs. AI</span>", ci "<span class="font-bold text-indigo-700">Om + AI</span>". Termenul provine din șah, unde un jucător de șah uman mediu, ajutat de un computer (un "<span class="font-bold text-indigo-700">Centaur</span>"), poate învinge cel mai puternic supercomputer sau cel mai bun mare maestru uman care joacă singur.</p>
+
+                <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="bg-white p-5 rounded-lg shadow">
+                        <h3 class="text-xl font-bold mb-2 text-indigo-700">În educație:</h3>
+                        <p class="text-md text-gray-600">Un profesor "augmentat" de AI poate monitoriza progresul individual al fiecărui elev în timp real, oferind atenție personalizată, în timp ce AI se ocupă de explicațiile de bază.</p>
+                    </div>
+                    <div class="bg-white p-5 rounded-lg shadow">
+                        <h3 class="text-xl font-bold mb-2 text-indigo-700">În știință:</h3>
+                        <p class="text-md text-gray-600">Un cercetător "augmentat" de AI poate procesa date și genera idei la o viteză fără precedent, concentrându-se pe creativitate și intuiție.</p>
+                    </div>
+                    
+                </div>
+		
+    </div>
+	
+    <div class="absolute bottom-3 right-5 text-sm font-semibold text-gray-500">14/16</div>
+</section>
+        
+
+<section id="slide-15" class="slide-content bg-gray-100">
+            <div class="max-w-7xl mx-auto py-6 px-4 sm:py-8 sm:px-6 lg:px-8">
+                <div class="text-center mb-8">
+                    <h2 class="text-base font-semibold text-indigo-600 tracking-wide uppercase">Încheiere</h2>
+                    <p class="mt-1 text-4xl font-extrabold text-gray-900 sm:text-5xl sm:tracking-tight">Concluzii</p>
+                </div>
+				
+				
+				
+				<div class="rounded-lg overflow-hidden mx-auto mb-4 mt-6">
+    
+					<img src="img/slide15.png" 
+						 class="w-full h-auto"> 
+				</div>
+                
+                <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="bg-white p-5 rounded-lg shadow">
+                        <h3 class="text-xl font-bold mb-2 text-indigo-700">AI este un instrument, nu un oracol</h3>
+                        <p class="text-md text-gray-600">Puterea sa constă în modul inteligent și etic în care îl folosim. Este un partener, nu un înlocuitor pentru gândirea umană.</p>
+                    </div>
+                    <div class="bg-white p-5 rounded-lg shadow">
+                        <h3 class="text-xl font-bold mb-2 text-indigo-700">Personalizare în educație</h3>
+                        <p class="text-md text-gray-600">AI permite adaptarea procesului de învățare la nevoile și ritmul individual al fiecărui elev.</p>
+                    </div>
+                    <div class="bg-white p-5 rounded-lg shadow">
+                        <h3 class="text-xl font-bold mb-2 text-indigo-700">Accelerare în știință</h3>
+                        <p class="text-md text-gray-600">AI ne ajută să găsim "acul în carul cu fân" în volume uriașe de date, scurtând timpul de la ipoteză la descoperire.</p>
+                    </div>
+                    <div class="bg-white p-5 rounded-lg shadow">
+                        <h3 class="text-xl font-bold mb-2 text-indigo-700">Gândirea critică rămâne vitală</h3>
+                        <p class="text-md text-gray-600">Mai mult ca oricând, abilitatea de a pune întrebări corecte, de a verifica informațiile și de a ghida AI în mod etic este crucială.</p>
+                    </div>
+                </div>
+                
+            </div>
+            <div class="absolute bottom-3 right-5 text-sm font-semibold text-gray-500">15/16</div>
+        </section>
+
+<section id="slide-16" class="slide-content">
+            <div class="relative bg-gray-900 h-[calc(100vh-3rem)] flex flex-col items-center justify-center text-center text-white overflow-hidden">
+                <img src="img/slide1.png"
+				alt="[Imagine de fundal abstractă legată de AI]"
+				class="absolute inset-0 w-full h-full object-cover opacity-30"
+                onerror="this.onerror=null;this.src='https://placehold.co/1920x1080/000033/FFFFFF?text=Imagine+Indisponibilă';">
+                <div class="relative z-10 p-4 w-full px-8">
+					<h1 class="text-4xl md:text-6xl font-extrabold tracking-tight mb-4">AI în educație și știință:</h1>
+                    <h2 class="text-2xl md:text-4xl lg:text-5xl font-light mb-12 whitespace-nowrap overflow-hidden text-ellipsis"> 
+					Cum ne ajută ChatGPT să învățăm și să descoperim</h2>
+                   
+					
+					<h2 class="text-5xl font-extrabold text-indigo-300 sm:text-6xl mb-6">Mulțumesc pentru atenție!</h2>
+                    <p class="text-3xl text-indigo-100 mb-10">Întrebări?</p>
+                    
+                    <div class="mt-16 space-y-1 mb-6 text-gray-300">
+                        <p class="text-xl md:text-2xl font-semibold text-indigo-300">Prof. Dr. Cristian R. Munteanu</p>
+						<div class="flex justify-center space-x-6 mt-8 mb-8">
+		
+							<img class="w-8 h-8 object-contain" 
+								 src="img/logo_udc.png" 
+								 alt="Logo UDC">
+							
+							<img class="w-8 h-8 object-contain" 
+								 src="img/logo_citic.png" 
+								 alt="Logo CITIC">
+
+						</div>
+                        <p class="text-sm">Facultatea de Informatică</p>
+						<p class="text-sm">Universitatea din A Coruña, CITIC</p>
+						<p class="text-sm">Spania</p>
+                        <p class="text-sm text-indigo-300">c.munteanu@udc.es</p>
+                        <p class="text-sm text-indigo-300">linkedin.com/in/muntisa</p>
+                       
+                    </div>
+
+
+                </div>
+                <div class="absolute bottom-0 left-0 right-0 p-3 bg-gray-800/70 text-gray-300 text-xs md:text-sm">
+                    <p>Ştiinţa pentru viitorii cercetători: experimente şi cunoaştere (ŞTIE) - PN-IV-P10-SS-SC-2024-0045, Programul 5.10 - Ştiinţă şi societate, Institutul de Chimie Fizică - Ilie Murgulescu</p>
+                </div>
+                <div class="absolute bottom-3 right-5 z-20 text-sm font-semibold text-indigo-300">16/16</div>
+            </div>
+</section>        
+
+
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const navLinks = document.querySelectorAll('.nav-link');
+            const slides = document.querySelectorAll('.slide-content');
+            const menuBtn = document.getElementById('menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            
+            // Selectăm SVG-urile (pentru iconița mobilă hamburger/X)
+            const allSvgs = menuBtn ? menuBtn.querySelectorAll('svg') : [];
+            const hamburgerIcon = allSvgs.length > 0 ? allSvgs[0] : null;
+            const closeIcon = allSvgs.length > 1 ? allSvgs[1] : null;
+
+            // Funcția de afișare a paginii (slide-ului)
+            function showSlide(slideId) {
+                // Ascundem toate slide-urile
+                slides.forEach(slide => {
+                    slide.style.display = 'none';
+                });
+
+                // Afișăm slide-ul dorit
+                const targetSlide = document.getElementById(slideId);
+                if (targetSlide) {
+                    targetSlide.style.display = 'block';
+                }
+
+                // Actualizăm clasa 'active' în navigație
+                navLinks.forEach(link => {
+                    if (link.dataset.slide === slideId) {
+                        link.classList.add('active'); // Folosim clasa CSS 'active'
+                    } else {
+                        link.classList.remove('active');
+                    }
+                });
+
+                // Închidem meniul mobil după click (dacă este deschis)
+                if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
+                    mobileMenu.classList.add('hidden');
+                    if (hamburgerIcon) {
+                        hamburgerIcon.classList.remove('hidden');
+                    }
+                    if (closeIcon) {
+                        closeIcon.classList.add('hidden');
+                    }
+                    if (menuBtn) {
+                        menuBtn.setAttribute('aria-expanded', 'false');
+                    }
+                }
+                
+                // Derulăm înapoi susul paginii
+                window.scrollTo(0, 0);
+            }
+
+            // Adăugăm event listenere pentru link-urile de navigare
+            navLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const slideId = link.dataset.slide;
+                    if (slideId) {
+                        showSlide(slideId);
+                        // Actualizează hash-ul URL-ului
+                        window.location.hash = slideId;
+                    }
+                });
+            });
+
+            // Adăugăm event listener pentru butonul de meniu mobil
+            if (menuBtn) { 
+                menuBtn.addEventListener('click', () => {
+                    const isExpanded = menuBtn.getAttribute('aria-expanded') === 'true';
+                    
+                    if (mobileMenu) {
+                        mobileMenu.classList.toggle('hidden');
+                    }
+                    if (hamburgerIcon) {
+                        hamburgerIcon.classList.toggle('hidden');
+                    }
+                    if (closeIcon) {
+                        closeIcon.classList.toggle('hidden');
+                    }
+                    
+                    menuBtn.setAttribute('aria-expanded', !isExpanded);
+                });
+            }
+
+            // Gestiunea navigării cu săgeți (pentru o experiență de prezentare mai bună)
+            const slideElements = document.querySelectorAll('.slide-content');
+            const slideMap = {};
+            slideElements.forEach((slide, index) => {
+                // Mapăm ID-ul slide-ului (ex: slide-1, slide-2) la indexul său bazat pe 1
+                slideMap[slide.id] = index + 1; 
+            });
+            const totalSlides = slideElements.length; // Acum ar trebui să fie 16
+
+            let currentSlideIndex = 1;
+
+            function goToNextSlide() {
+                if (currentSlideIndex < totalSlides) {
+                    currentSlideIndex++;
+                    const nextSlideId = `slide-${currentSlideIndex}`;
+                    showSlide(nextSlideId);
+                    window.location.hash = nextSlideId;
+                }
+            }
+
+            function goToPrevSlide() {
+                if (currentSlideIndex > 1) {
+                    currentSlideIndex--;
+                    const prevSlideId = `slide-${currentSlideIndex}`;
+                    showSlide(prevSlideId);
+                    window.location.hash = prevSlideId;
+                }
+            }
+
+            // Ascultăm evenimentele de tastatură pentru săgețile stânga/dreapta
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'ArrowRight' || e.key === ' ') { // Săgeată dreapta sau Space
+                    goToNextSlide();
+                } else if (e.key === 'ArrowLeft') { // Săgeată stânga
+                    goToPrevSlide();
+                }
+            });
+
+            // Funcție pentru a determina indexul slide-ului curent (din hash)
+            function getSlideIndexFromHash() {
+                const hash = window.location.hash.substring(1);
+                // Căutăm ID-ul în harta noastră
+                const index = slideMap[hash]; 
+                return index && !isNaN(index) ? index : 1;
+            }
+
+            // Afișăm slide-ul corect la încărcarea paginii (în funcție de hash sau implicit slide-1)
+            currentSlideIndex = getSlideIndexFromHash();
+            // Determinăm ID-ul slide-ului din index (acest lucru funcționează deoarece slide-urile sunt numerotate consecutiv)
+            showSlide(`slide-${currentSlideIndex}`); 
+
+        });
+    </script>
+</body>
+</html>
